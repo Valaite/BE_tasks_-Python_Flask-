@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Keliamieji metai{% endblock %}
+{% block content %}
+    <nav>
+        <a class="nav-link" href="/">Pradinis puslapis</a>
+    </nav>
+    <h1>Keliamųjų metų sąrašas</h1>
+    <div class="leap-section">
+        {% for year in years %}
+            {% if year % 4 == 0 %}
+                {% if year % 100 == 0 and year % 400 != 0 %}
+                    <p>{{ year }}: ne keliamieji metai</p>
+                {% else %}
+                    <p>{{ year }}: keliamieji metai</p>
+                {% endif %}
+            {% else %}
+                <p>{{ year }}: ne keliamieji metai</p>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

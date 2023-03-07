@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Ar keliamieji metai?{% endblock %}
+{% block content %}
+    <nav>
+        <a class="nav-link" href="/">Pradinis puslapis</a>
+    </nav>
+    <h1>Pasitkrink ar metai keliamieji</h1>
+    <form action="#" method="post">
+        <label for="metai">Įvesk metus</label>
+        <input id="metai" name="metai" type="text">
+        <button type="submit">Patikrink</button>
+    </form>
+    {% if metai %}
+        <div class="leap-year-container">
+            {% if leap_year %}
+                <p class="green">{{ metai }} metai yra keliamieji.</p>
+            {% else %}
+                <p class="red">{{ metai }} metai nėra keliamieji.</p>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

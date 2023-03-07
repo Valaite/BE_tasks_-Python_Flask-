@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if form %}
+        <form method="post" action="#">
+            {{ form.hidden_tag() }}
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.bank_name.label(class="form-control-label") }}
+                    {{ form.bank_name(class="form-control") }}
+                    {% if form.bank_name.errors %}
+                        {% for error in form.bank_name.errors %}<small><font color="red">{{ error }}</font></small>{% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.address.label(class="form-control-label") }}
+                {{ form.address(class="form-control") }}
+                {% if form.address.errors %}
+                    {% for error in form.address.errors %}<small><font color="red">{{ error }}</font></small>{% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.bank_code.label(class="form-control-label") }}
+                {{ form.bank_code(class="form-control") }}
+                {% if form.bank_code.errors %}
+                    {% for error in form.bank_code.errors %}<small><font color="red">{{ error }}</font></small>{% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.swift.label(class="form-control-label") }}
+                {{ form.swift(class="form-control") }}
+                {% if form.swift.errors %}
+                    {% for error in form.swift.errors %}<small><font color="red">{{ error }}</font></small>{% endfor %}
+                {% endif %}
+            </div>
+            <br>
+            {{ form.submit }}
+        </form>
+    {% else %}
+        <h3>Bankas sėkmingai pridėtas!</h3>
+    {% endif %}
+    {% for i in data %}
+        <hr>
+        <p>{{ i.id }}. {{ i.bank_name }} {{ i.address }}</p>
+        <p>{{ i.bank_code }}, {{ i.swift }}</p>
+    {% endfor %}
+    <p>
+        <a href="{{ url_for('new_bank')}}">+ Pridėti banką</a>
+    </p>
+{% endblock %}

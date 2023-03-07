@@ -1,0 +1,29 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+{% for pc in pcs %}
+{% if pc.price < 500 %}
+<h2 style="color: red;"> Special Price: {{ pc.brand }} {{ pc.processor_type }} PC</h2>
+{% else %}
+<h2>{{ pc.brand }} {{ pc.processor_type }} PC</h2>
+{% endif %}
+<ul>
+    <li>Processor Type: {{ pc.processor_type }}</li>
+    <li>Processor Speed: {{ pc.processor_speed }}</li>
+    <li>RAM: {{ pc.ram }}</li>
+    <li>Storage Type: {{ pc.storage_type }}</li>
+    <li>Storage Size: {{ pc.storage_size }}</li>
+    <li>Graphics Card: {{ pc.graphics_card }}</li>
+    <li>Display Size: {{ pc.display_size }}</li>
+    <li>Display Resolution: {{ pc.display_resolution }}</li>
+    <li>Operating System: {{ pc.operating_system }}</li>
+    <li>Price: ${{ pc.price }}</li>
+    <li>Specifications: {{ pc.specifications }}</li>
+    <li>Warranty Information: {{ pc.warranty_information }}</li>
+    <li>Customer Reviews: {{ pc.customer_reviews }}</li>
+</ul>
+<hr class="rounded">
+{% endfor %}
+
+{% endblock %}

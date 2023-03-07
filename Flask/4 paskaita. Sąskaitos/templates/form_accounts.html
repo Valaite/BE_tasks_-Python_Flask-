@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if form %}
+        <form method="post" action="#">
+            {{ form.hidden_tag() }}
+            <div class="form-row">
+                <div class="form-group">
+                    {{ form.number.label(class="form-control-label") }}
+                    {{ form.number(class="form-control") }}
+                    {% if form.number.errors %}
+                        {% for error in form.number.errors %}<small><font color="red">{{ error }}</font></small>{% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.balanse.label(class="form-control-label") }}
+                {{ form.balanse(class="form-control") }}
+                {% if form.balanse.errors %}
+                    {% for error in form.balanse.errors %}<small><font color="red">{{ error }}</font></small>{% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.bank.label(class="form-control-label") }}
+                {{ form.bank(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.user.label(class="form-control-label") }}
+                {{ form.user(class="form-control") }}
+            </div>
+            <br>
+            {{ form.submit }}
+        </form>
+    {% else %}
+        <h3>Sąskaita sėkmingai pridėta!</h3>
+    {% endif %}
+    {% for i in data %}
+        <hr>
+        <p>{{ i.id }}. {{ i.number }} {{ i.balanse }}</p>
+        <p>{{ i.bank }}, {{ i.user }}</p>
+    {% endfor %}
+    <p>
+        <a href="{{ url_for('new_account')}}">+ Pridėti sąskaitą</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Flask App{% endblock %}
+{% block content %}
+    <h1>{{ data }}</h1>
+    <div class="pages">
+        <button class="page-link"
+                onclick="window.location.href='/keliamieji'">
+            Keliamųjų metų sąrašas
+        </button>
+        <button class="page-link"
+                onclick="window.location.href='/ar-keliamieji'">
+            Ar keliamieji?
+        </button>
+        <button class="page-link"
+                onclick="window.location.href='/bet-koks-adresas'">
+            Kintamasis pagal adresą
+        </button>
+    </div>
+{% endblock %}

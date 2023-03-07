@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Forma užpildyta sėkmingai!</h1><br><br>
+<p>Vardas: {{form.name.data}}</p>
+<p>Pavardė: {{form.l_name.data}}</p>
+<p>Data: {{form.date.data}}</p>
+<p>Komentaras: {{form.comment.data}}</p>
+
+{% endblock %}

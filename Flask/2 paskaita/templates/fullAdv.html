@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for adv in data %}
+{% if adv['pavadinimas'] == title %}
+
+<h1>{{ adv['pavadinimas'] }}</h1>
+<p>{{ adv['data'] }}, <i>{{ adv['autorius'] }}</i></p>
+<hr>
+<p>{{ adv['tekstas'] }}</p>
+<br><br>
+
+{% endif %}
+{% endfor %}
+
+{% endblock %}

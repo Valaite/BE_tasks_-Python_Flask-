@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Dėstytojai:</h1>
+{% if lecturers %}
+{% for lecturer in lecturers %}
+<hr>
+<p>{{lecturer.name}}</p>
+<p>{{lecturer.l_name}}</p>
+
+{% if lecturer.lessons %}
+<p>Paskaitos:</p>
+{% for lesson in lecturer.lessons %}
+<p>{{lesson.name}}</p>
+{% endfor %}
+{% endif %}
+<a href="{{ url_for('lecturer_delete', id=lecturer['id']) }}">Ištrinti dėstytoją</a>
+{% endfor %}
+{% endif %}
+<hr>
+<p><a href="{{ url_for('add_lecturer')}}"> + Pridėti dėstytoją</a></p>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if calendar.isleap(year) %}
+    <p> Leap Year </p>
+    {% else %}
+    <p> NOT Leap Year </p>
+    {% endif %}
+
+{% endblock %}

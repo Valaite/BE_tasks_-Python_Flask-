@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Paskaitos:</h1>
+{% if all_lessons %}
+{% for lesson in all_lessons %}
+<hr>
+<p>{{lesson.name}}</p>
+
+{% if lesson.lecturer %}
+<p>Dėstytojas:</p>
+<p>{{lesson.lecturer.name}}{{lesson.lecturer.l_name}}</p>
+{% endif %}
+{% if lesson.students %}
+<p>Studentai:</p>
+{% for student in lesson.students %}
+<p>{{student.name}} {{student.l_name}}</p>
+{% endfor %}
+{% endif %}
+
+<a href="{{ url_for('lesson_delete', id=lesson['id']) }}">Ištrinti paskaitą</a>
+{% endfor %}
+{% endif %}
+<hr>
+<p><a href="{{ url_for('add_lesson')}}"> + Pridėti paskaitą</a></p>
+
+{% endblock %}

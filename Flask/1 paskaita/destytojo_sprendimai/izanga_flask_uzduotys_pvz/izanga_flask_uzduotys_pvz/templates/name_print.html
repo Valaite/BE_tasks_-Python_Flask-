@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ data }}{% endblock %}
+{% block content %}
+
+    <nav>
+        <a class="nav-link" href="/">Pradinis puslapis</a>
+    </nav>
+    {% for x in range(5) %}
+        <h4>{{ data }}</h4>
+    {% endfor %}
+
+{% endblock %}

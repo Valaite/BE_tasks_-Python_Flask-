@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if all_users %}
+{% for user in all_users %}
+<hr>
+<p>Vardas: {{user.name}}</p>
+<p> Pavardė: {{user.l_name}}</p>
+<p> Asmens kodas: {{user.code}}</p>
+<p> Tel. numeris: {{user.phone_number}}</p>
+<a href="{{ url_for('user_delete', id=user['id']) }}">Ištrinti</a>
+{% endfor %}
+{% endif %}
+<hr>
+<p><a href="{{ url_for('new_user')}}"> + Pridėti asmenį</a></p>
+
+{% endblock %}
